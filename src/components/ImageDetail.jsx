@@ -11,6 +11,8 @@ export const ImageDetail = ({ image }) => {
 
   const handleClick = () => {
     setIsBig((prev) => !prev);
+    console.log(isBig)
+    console.log(image.created_at)
   };
   return (
     <>
@@ -40,7 +42,7 @@ export const ImageDetail = ({ image }) => {
           onClick={handleClick}
         />
         <p>
-          Taken on {image.created_at && "Na"} at {image.location.name && "Na"}
+          Taken on {image.created_at || "Na"} at {image.location.name || "Na"}
         </p>
       </div>
     </>
