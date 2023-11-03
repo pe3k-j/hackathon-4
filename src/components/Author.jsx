@@ -5,7 +5,7 @@ import { Link, useParams } from "react-router-dom";
 
 export const Author = () => {
 	const [author, setAuthor] = useState({});
-	const [pictures, setPictures] = useState([]);
+	const [pictures, setPictures] = useState(null);
 	const { id } = useParams();
 
 	const loadAuthor = async () => {
@@ -13,7 +13,6 @@ export const Author = () => {
 			"https://api.unsplash.com/users/" + id + "?client_id=" + key
 		);
 		const data = await response.json();
-		console.log(data);
 		setAuthor(data);
 	};
 
@@ -25,7 +24,6 @@ export const Author = () => {
 				key
 		);
 		const data = await response.json();
-		console.log(data);
 		setPictures(data);
 	};
 
@@ -62,25 +60,27 @@ export const Author = () => {
 					<p></p>
 					<h5>Contacts:</h5>
 					<p className="author-contacts">
-						{"author.links.html"}
+						{author?.links?.html}
 						<br />
 						Instagram: {author.instagram_username}
 						<br />
-						Twitter: {"author.social.twitter_username"}
+						Twitter: {author?.social?.twitter_username}
 					</p>
 				</div>
-				<img src={"author.profile_image.large"} alt="profile_image" />
+				<img src={author?.profile_image?.large} alt="profile_image" />
 			</div>
 			<div className="pictures-container">
-				{pictures.map((picture) => (
-					<Link key={picture.id} to={"/image/" + picture.id}>
-						<img
-							className="picture-sample"
-							src={picture.urls.regular}
-							alt={picture.alt_description}
-						/>
-					</Link>
-				))}
+				{pictures !== null
+					? pictures.map((picture) => (
+							<Link key={picture.id} to={"/image/" + picture.id}>
+								<img
+									className="picture-sample"
+									src={picture.urls.regular}
+									alt={picture.alt_description}
+								/>
+							</Link>
+					  ))
+					: "load"}
 			</div>
 		</>
 	);
