@@ -13,6 +13,7 @@ export const Pagination = ({ page, setPage }) => {
   return (
     <div className="pagination">
       <button onClick={prevPage}> Prev </button>
+      <span className="pageNumber">{page}</span>
       <button onClick={nextPage}> Next </button>
     </div>
   )
