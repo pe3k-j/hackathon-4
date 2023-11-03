@@ -9,7 +9,7 @@ export const ImagePreview = ({ image }) => {
           <img src={image.urls.small} alt={image.alt_description} />
         </div>
       </Link>
-      <Link to={`/author/${image.user.id}`}>
+      <Link to={`/author/${image.user.username}`}>
         <div className="authorPart">
           <span className="author__name">{image.user.name}</span>
         </div>

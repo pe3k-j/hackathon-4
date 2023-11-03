@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { SearchBar } from "./SearchBar";
 import { ImagePreview } from "./ImagePreview";
 import { key } from "../../keys";
+import { Pagination } from "./Pagination";
 
 export const HomePage = () => {
-  const [items, setItems] = useState(null);
+  const [items, setItems] = useState([]);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
 
@@ -23,28 +24,24 @@ export const HomePage = () => {
     loadCountries();
   }, [search, page]);
 
-  const nextPage = () => {
-    setPage(page + 1);
-  };
-
-  const prevPage = () => {
-    if (page > 0) {
-      setPage(page - 1);
-    }
-  };
-
   return (
     <div className="Homepage">
-      <SearchBar search={search} setSearch={setSearch} />
-      <button onClick={prevPage}> Prev </button>
-      <button onClick={nextPage}> Next </button>
+      <SearchBar setSearch={setSearch} />
+      {items.length === 0 || search === "" ? (
+        ""
+      ) : (
+        <Pagination page={page} setPage={setPage} />
+      )}
       <div className="countries">
         {items !== null
           ? items.map((item) => <ImagePreview key={item.id} image={item} />)
           : "Loading"}
       </div>
-      <button onClick={prevPage}> Prev </button>
-      <button onClick={nextPage}> Next </button>
+      {items.length === 0 || search === "" ? (
+        ""
+      ) : (
+        <Pagination page={page} setPage={setPage} />
+      )}
     </div>
   );
 };

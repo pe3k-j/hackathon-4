@@ -1,12 +1,24 @@
-export const SearchBar = ({ search, setSearch }) => {
+import { useState } from "react"
+
+export const SearchBar = ({ setSearch }) => {
+
+  const [input, setInput] = useState('')
 
   const handleSearch = (event) => {
-    setSearch(event.target.value)
+    setInput(event.target.value)
+  }
+
+  const submitSearch = (event) => {
+    event.preventDefault()
+    setSearch(input)
   }
 
   return (
     <div className="SearchBar">
-      <input className="input input__text" type="text" placeholder="Search for a image..." onInput={handleSearch} value={search} />
+      <form onSubmit={submitSearch}>
+        <input className="input input__text" type="text" placeholder="Search for a image..." onInput={handleSearch} value={input} />
+        <button type="submit"> Search </button>
+      </form>
     </div>
   )
 }
