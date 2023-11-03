@@ -16,10 +16,10 @@ export const Header = () => {
     <>
       <header>
         <h1>Title of Our App</h1>
-        <button onClick={handleClick}>
-          Dark Mode {state.theme === "dark" ? "ON" : "OFF"}
-        </button>
         <Navigation />
+        <span className="button" onClick={handleClick}>
+          Dark Mode {state.theme === "dark" ? "ON" : "OFF"}
+        </span>
       </header>
     </>
   );
