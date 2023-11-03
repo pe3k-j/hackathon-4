@@ -8,19 +8,19 @@ import { Image } from "../components/Image";
 import { About } from "../components/About";
 
 export const Router = () => {
-  const { state } = useContext(Context);
+	const { state } = useContext(Context);
 
-  return (
-    <div className={state.theme === "dark" ? "theme_dark" : undefined}>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/author/:id" element={<Author />} />
-          <Route path="/image/:id" element={<Image />} />
-          <Route path="/about" element={<About />} />
-          <Route path="*" element="404 page not found" />
-        </Route>
-      </Routes>
-    </div>
-  );
+	return (
+		<div className={state.theme === "dark" ? "theme_dark" : undefined}>
+			<Routes>
+				<Route path="/" element={<Layout />}>
+					<Route index element={<HomePage />} />
+					<Route path="/author/:id" element={<Author />} />
+					<Route path="/image/:id" element={<Image />} />
+					<Route path="/about" element={<About />} />
+					<Route path="*" element="404 page not found" />
+				</Route>
+			</Routes>
+		</div>
+	);
 };
