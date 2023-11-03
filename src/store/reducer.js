@@ -1,6 +1,4 @@
 export default function reducer(state, action) {
-  console.log("Incoming action: ", action);
-
   switch (action.type) {
     case "theme/set":
       return {
@@ -8,6 +6,5 @@ export default function reducer(state, action) {
         theme: action.payload,
       };
   }
-
   return state;
 }
