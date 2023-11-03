@@ -8,12 +8,22 @@ import { useState } from "react";
 
 export const ImageDetail = ({ image }) => {
   const [isBig, setIsBig] = useState(false);
+  const [isHover, setIsHover] = useState(false);
 
   const handleClick = () => {
     setIsBig((prev) => !prev);
-    console.log(isBig)
-    console.log(image.created_at)
+    console.log(isBig);
+    console.log(image.created_at);
   };
+
+  const handleMouseEnter = () => {
+    setIsHover(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHover(false);
+  };
+
   return (
     <>
       <div className="image__container">
@@ -34,8 +44,10 @@ export const ImageDetail = ({ image }) => {
         <ImageTags tags={image.tags} />
         <p>Number of Views {image.views}</p>
         <ImageResolution width={image.width} height={image.height} />
-        <TechnicalDetails dataObj={image.exif} />
+        {isHover && <TechnicalDetails dataObj={image.exif} />}
         <img
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           style={{ cursor: "pointer" }}
           src={isBig ? image.urls.regular : image.urls.small}
           alt={image.alt_description}
