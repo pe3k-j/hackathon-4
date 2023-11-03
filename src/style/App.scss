@@ -84,6 +84,9 @@ header {
     justify-content: space-evenly;
     .ImagePreview {
       position: relative;
+      &:hover {
+        transform: scale(1.025);
+      }
       .imagePart {
         padding-bottom: 2em;
         padding: 1em;
