@@ -43,7 +43,13 @@ export const ImageDetail = ({ image }) => {
         <ImageTags tags={image.tags} />
         <p>Number of Views {image.views}</p>
         <ImageResolution width={image.width} height={image.height} />
-        {isHover && <TechnicalDetails dataObj={image.exif} />}
+        {isHover && (
+          <TechnicalDetails
+            dataObj={image.exif}
+            handleMouseEnter={handleMouseEnter}
+            handleMouseLeave={handleMouseLeave}
+          />
+        )}
         <img
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}

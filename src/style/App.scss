@@ -120,10 +120,18 @@ header {
 }
 
 .image__detail {
- .image__container {
+  .image__container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    .photo__details {
+      position: absolute;
+      background-color: rgba(128, 128, 128, 0.503);
+      color: #c6c6c6;
+      border-radius: 5%;
+      top: 50%;
+      z-index: 1;
+    }
     .author {
       font-size: 2em;
       font-weight: bold;
@@ -132,12 +140,11 @@ header {
       font-size: 1.2em;
       text-decoration: underline;
     }
- }
+  }
 }
 
-
 .Author {
-  .author-container{
+  .author-container {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
