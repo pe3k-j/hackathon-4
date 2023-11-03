@@ -3,6 +3,7 @@ import "./style/App.scss";
 import { useReducer } from "react";
 import reducer from "./store/reducer";
 import Context from "./context/Context";
+import { Router } from "./router/Router";
 
 export default function App() {
   const [contextValue, setContextValue] = useReducer(reducer, {
@@ -15,7 +16,7 @@ export default function App() {
         value={{ state: contextValue, dispatch: setContextValue }}
       >
         <>
-          <h1>Name of website</h1>
+          <Router />
         </>
       </Context.Provider>
     </BrowserRouter>
