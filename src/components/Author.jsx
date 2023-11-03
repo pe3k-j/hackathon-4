@@ -62,18 +62,18 @@ export const Author = () => {
 					<p></p>
 					<h5>Contacts:</h5>
 					<p className="author-contacts">
-						{author.links.html}
+						{"author.links.html"}
 						<br />
 						Instagram: {author.instagram_username}
 						<br />
-						Twitter: {author.social.twitter_username}
+						Twitter: {"author.social.twitter_username"}
 					</p>
 				</div>
-				<img src={author.profile_image.large} alt="profile_image" />
+				<img src={"author.profile_image.large"} alt="profile_image" />
 			</div>
 			<div className="pictures-container">
 				{pictures.map((picture) => (
-					<Link key={picture.id} to={"/image/:id"}>
+					<Link key={picture.id} to={"/image/" + picture.id}>
 						<img
 							className="picture-sample"
 							src={picture.urls.regular}
