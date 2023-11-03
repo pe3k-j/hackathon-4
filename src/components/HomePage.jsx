@@ -32,7 +32,7 @@ export const HomePage = () => {
       ) : (
         <Pagination page={page} setPage={setPage} />
       )}
-      <div className="countries">
+      <div className="images">
         {items !== null
           ? items.map((item) => <ImagePreview key={item.id} image={item} />)
           : "Loading"}

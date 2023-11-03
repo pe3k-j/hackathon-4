@@ -11,7 +11,7 @@ export const Router = () => {
 	const { state } = useContext(Context);
 
 	return (
-		<div className={state.theme === "dark" ? "theme_dark" : undefined}>
+		<div className={state.theme === "dark" ? "theme_dark" : 'theme_light'}>
 			<Routes>
 				<Route path="/" element={<Layout />}>
 					<Route index element={<HomePage />} />

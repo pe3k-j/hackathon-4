@@ -11,26 +11,25 @@ export const ImageDetail = ({ image }) => {
 
   const handleClick = () => {
     setIsBig((prev) => !prev);
-    console.log(isBig)
-    console.log(image.created_at)
   };
   return (
     <>
       <div className="image__container">
         <SlugToTitle slug={image.slug} />
-        <p>
+        <div className="author">
           {image.description} by{" "}
-          <Link to={"/author/" + image.user.id}>{image.user.first_name}</Link>
-          <br />{" "}
+          <Link to={"/author/" + image.user.username}>
+            {image.user.first_name}
+          </Link>
+        </div>
+        <div className="ig">
           <a
-            href={
-              "https://www.instagram.com/discoverneom/" +
-              image.user.instagram_username
-            }
+            href={"https://www.instagram.com/" + image.user.instagram_username}
+            target="_blank"
           >
             IG
           </a>
-        </p>
+        </div>
         <ImageTags tags={image.tags} />
         <p>Number of Views {image.views}</p>
         <ImageResolution width={image.width} height={image.height} />
