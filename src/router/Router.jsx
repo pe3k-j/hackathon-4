@@ -6,7 +6,7 @@ import Context from "../context/Context";
 import { Author } from "../components/Author";
 import { Image } from "../components/Image";
 
-export const Routers = () => {
+export const Router = () => {
   const { state } = useContext(Context);
 
   return (
