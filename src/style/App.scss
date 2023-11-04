@@ -6,6 +6,11 @@ body {
 }
 .layout {
 	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	.layout_content {
+		flex: 1;
+	}
 }
 
 a {
@@ -28,6 +33,10 @@ a:hover {
 	&_light {
 		background-color: #c6c6c6;
 	}
+}
+
+.button_back {
+	width: 40px;
 }
 
 // HEADER
@@ -87,6 +96,9 @@ header {
 		justify-content: space-evenly;
 		.ImagePreview {
 			position: relative;
+			&:hover {
+				transform: scale(1.025);
+			}
 			.imagePart {
 				padding-bottom: 2em;
 				padding: 1em;
